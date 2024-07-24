@@ -1,0 +1,765 @@
+<!-- main website -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="5">
+  <title>Latest Reading</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* mycode */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color:#1d1b26;
+  color:#101011;
+}
+nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70px;
+  background-color: #0c0c0c;
+  position:fixed;
+  width:100%;
+  top: 0;
+  z-index: 100;
+}
+  h1{
+    color: white;
+    font-size: xx-large;
+  }
+nav ul{
+  display: flex;
+  justify-content:center;
+}
+nav ul li{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 25px;
+  font-size: larger;
+}
+nav ul li a{
+  text-decoration: none;
+  color: aliceblue;
+}
+nav ul li a:hover{
+  color: rgb(94, 94, 131);
+  font-size: 1.3rem;
+}
+table {
+    position: relative;
+    width:100%;
+    border-spacing: 0px;
+  }
+  tr {
+    border: 1px solid white;
+    font-family: "Verdana", "Arial", sans-serif;
+    font-size: 20px;
+  }
+  th {
+    height: 20px;
+    padding: 3px 15px;
+    background-color: #343a40;
+    color: #FFFFFF !important;
+    }
+  td {
+    height: 20px;
+     padding: 3px 15px;
+  }
+  .tabledata {
+    font-size: 24px;
+    position: relative;
+    padding-left: 5px;
+    padding-top: 5px;
+    height:   25px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    line-height: 20px;
+    transition: all 200ms ease-in-out;
+    background-color: #00AA00;
+  }
+  .fanrpmslider {
+    width: 30%;
+    height: 55px;
+    outline: none;
+    height: 25px;
+  }
+  .bodytext {
+    font-family: "Verdana", "Arial", sans-serif;
+    font-size: 24px;
+    text-align: left;
+    font-weight: light;
+    border-radius: 5px;
+    display:inline;
+  }
+
+/* mycode for home */
+ .first{
+  display:flex;
+  justify-content:space-around;
+  margin:80px 37px;
+  z-index:10;
+  margin-top: 10px;
+}
+.leftsection{
+  width:50%;
+  font-size:5rem;
+  margin:20px30px;
+  z-index:10;
+  margin-top:8%;
+}
+
+.leftsection p{
+    font-size: 100%;
+    font-weight: 400;
+}
+.rightsection img{
+  width:75%;
+  height:75%;
+  border-radius:50%;
+  margin-right:-450px;
+  object-fit:cover;
+  object-position:10% 60%;
+  z-index:10;
+  /* box-shadow: inset 0 0 10px rgb(138, 138, 181), 0 0 10px rgb(138, 138, 181);
+  border: 2px solid rgb(138, 138, 181); */
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    height: 80%;
+
+  }
+  
+  .rightsection {
+    width: 70%;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 10;
+     margin-top: 18%;
+     margin-left: 30%;
+
+  }
+
+  .rightsection p{
+    font-size: 150%;
+    font-weight: 400;
+  }
+  
+  .homebuttons {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    width: 50%; /* Take up half of the screen width */
+    margin-left: 32%;
+    margin-top: -10%;
+}
+.homebuttons .btn {
+    margin-left: 10px; /* Space between buttons */
+}
+  h1 {
+    margin-top: 0;
+    color: #a99b9b;
+  }
+  h2{
+    margin-top: 0;
+    color: #1a1919;
+  }
+  
+  p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #080808;
+  }
+  
+main hr{
+  background-color:rgb(139, 139, 225);
+  border: 0;
+  height: 1.5px;
+  margin: 100px 25px;
+  margin-top: 15%;
+}
+ /* Khushi's css code */
+  body {
+    background:linear-gradient(to left top, rgb(179, 246, 249), rgb(129, 141, 207));
+    background-attachment: fixed; 
+    }
+    .navtitle{ 
+      height: 50px;
+      font-family: "Verdana", "Arial", sans-serif;
+      font-size: 50px;
+      font-weight: bold;
+      line-height: 50px;
+      padding-left: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .navheading{
+      display:inline-block;
+  }
+  .navdata{
+      display:inline-block;
+      left: 10%
+  }
+  .readings{
+      display:inline-block;
+      padding: 20px;
+      margin-left: 40%;
+    }
+  .readingtitle{
+      height: 50px;
+      font-family: "Verdana", "Arial", sans-serif;
+      font-size: 50px;
+      font-weight: bold;
+      line-height: 50px;
+      text-align: center;
+      margin-bottom: 80px;
+      margin-left: -50%;
+  }
+  .readingvalues{
+    margin-left: -40%;
+    font-size: xx-large;
+  }
+  .extrainfo{
+    font-size: small;
+    color: red;
+  }
+  .parameter{
+      background-color: rgba(222, 244, 247, 0.151);
+      display: grid;
+      grid-template-columns: 2fr 1fr ;
+      height: 150px;
+      border-radius: 10px;
+      border: #1c034f;
+      border-width: 80px;
+      margin: 3%;
+  }
+  .info{
+      display:inline-block;
+      padding:20px;
+  }
+  table {
+      position:relative;
+      width:100%;
+      border-spacing: 0px;
+  }
+
+  tr {
+      border: 1px solid white;
+      font-family: "Verdana", "Arial", sans-serif;
+      font-size: 20px;
+  }
+  th {
+      height: 20px;
+      padding: 3px 15px;
+      background-color: #343a40;
+      color: #FFFFFF !important;
+  }
+  .tabledata {
+      font-size: 24px;
+      position: relative;
+      padding-left: 5px;
+      padding-top: 5px;
+      height: 25px;
+      border-radius: 20px;
+      
+      line-height: 20px;
+      transition: all 200ms ease-in-out;
+      background-color: #15aae4a1;
+  }
+  .controlgrid{
+      padding-right: 56%;
+      margin-top: 8%;
+      display: flex;
+      justify-content: space-around; /* Adjust as needed */
+      align-items: center;
+        }
+  .controlgrid .btn {
+      padding: 5px 5px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: rgb(65, 65, 218);
+      color: white;
+      border: none;
+      border-radius: 5px;
+  }
+
+  .btn{
+      text-align: center;
+      
+      background-color: #444444;
+      border: none;
+      color: white;
+      padding: 5px 5px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      
+      cursor: pointer;
+  }
+  
+  .sensorreadings {
+    text-align: center;
+    margin-top: 50px; /* Adjust margin as needed */
+  }
+  
+  .sensorreadings h1 {
+    font-size: 28px; /* Adjust font size as needed */
+    margin-bottom: 20px;
+  }
+  
+  .sensorreadings p {
+    font-size: 20px; /* Adjust font size as needed */
+    margin-bottom: 10px;
+  }
+  
+  .sensorreadings span {
+    font-weight: bold;
+  }
+  
+  .fanspeed{
+      background-color: rgba(222, 244, 247, 0.151);
+      display: grid;
+      height: 150px;
+      border: #1c034f;
+      border-width: 80px;
+      margin: 3%;
+      border-radius: 10px;
+
+  }
+  .fancontent{
+      padding: 4%;
+      text-align: center;
+  }
+ /* Khushi's css code ends */
+ 
+  /* team section css code starts here */
+  .name{
+    height: 50px;
+      font-family: "Verdana", "Arial", sans-serif;
+      font-size: 50px;
+      font-weight: bold;
+      line-height: 50px;
+      text-align: center;
+      margin-left: -2%;
+      margin-top: 4%;
+  }
+  .box {
+    position: relative;
+    width: 250px;
+    height: 200px; /* Adjusted height for better fit */
+    border-radius: 10px;
+    overflow: hidden; /* Ensures content does not overflow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+    margin-left: 8%;
+    margin-top: 4%;
+  }
+  
+  .box .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease;
+    background-color: #ffffff;
+    padding: 20px;
+  }
+  
+  .box:hover .content {
+    transform: translate(-50%, -50%) scale(1.1); /* Scale effect on hover */
+  }
+  
+  .box .content h3 {
+    font-size: 20px;
+    color: #111111;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .box .content span {
+    font-size: 14px;
+    font-weight: 300;
+    color: #666666;
+  }
+  
+  .box .content ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  .box .content ul li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  .box .content ul li a {
+    color: #333333;
+    text-decoration: none;
+    font-size: 20px; /* Adjust icon size */
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      gap: 20px;
+    }
+  
+    .box .content {
+      padding: 15px;
+    }
+  
+    .box .content h3 {
+      font-size: 18px;
+    }
+  }
+  /* contact form css */
+  .contact-form h2{
+    text-align: center;
+    margin-top: 5em;
+    /* margin-bottom: 1em; */
+    font-size: 56px;
+  }
+  .contact-form form{
+    max-width:100%;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3em;
+  }
+  .contact-form form .input-box{
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+  }
+  .contact-form form .input-box input,  .contact-form form textarea{
+    width: 100%;
+    padding: 1.5em;
+    font-size: 18px;
+    color: black;
+    background-color: aliceblue;
+    border-radius: 0.8rem;
+    margin: 1rem 0;
+    resize: none;
+  }
+  .btn{
+    background: rgb(235, 220, 220);
+    border: 2px solid black;
+    color: black;
+    padding: 10px;
+    width: 150px;
+    height: 50px; 
+    min-width: 150px; 
+    min-height: 50px; 
+    margin-top: 40px;
+    border-radius: 40px;
+    margin-left:40% ;
+  }
+  .btn:hover{
+    transform: scale(1.1)translateY(-2px);
+    color: rgb(68, 118, 205);
+    border: 2px solid rgb(245, 240, 232);
+  }
+   #form {
+    width: 500px;
+    margin: 20vh auto 0 auto;
+    padding: 40px;
+    background-color: rgb(95, 93, 93);
+    border-radius: 4px;
+    font-size: 29px;
+    margin-left:35%;
+    margin-top:5vh;
+    color: #f0f0f0;
+  }
+
+  #form h1 {
+    color: #0e0f0f;
+    text-align: center;
+    margin-top:-20px;
+  }
+
+  #form button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    color: white;
+    background-color: rgb(41, 57, 194);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 40%;
+  }
+
+  .input-control {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-control input {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-size: 12px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .input-control input:focus {
+    outline: 0;
+  }
+
+  .input-control.success input {
+    border-color: #09c372;
+  }
+
+  .input-control.error input {
+    border-color: #ff3860;
+  }
+
+  .input-control .error {
+    color: #ff3860;
+    font-size: 9px;
+    height: 13px;
+  }
+
+  /* footer */
+  .footer{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 40px 0;
+    background-color: black;
+    margin-top: 10%;
+}
+.footer .social{
+    text-align: center;
+    padding-bottom: 25px;
+    color: white;
+}
+.footer .social a{
+    font-size: 24px;
+    color: white;
+    
+    width: 40px;
+    height: 40px;
+    line-height: 38px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 8px;
+    box-shadow: inset 0 0 10px blue, 0 0 10px blue;
+    border: 2px solid #2272FF;
+    transition: 0.4s ease;
+}
+.footer .social a:hover{
+    transform: scale(1.2)translateY(-5px);
+    color: orange;
+    border: 2px solid blue;
+}
+.footer ul{
+    margin-top: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: center;
+}
+.footer ul li a{
+    color: white;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s ease;
+}
+.footer ul li a:hover{
+    border-bottom: 3px solid orange;
+}
+.footer ul li{
+    display: inline-block;
+    padding: 0 15px;
+}
+.footer .copyright{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 12px;
+    color: white;
+}
+  </style>
+</head>
+    <body style="background-color: #efefef" onload="process()">
+        <header>
+            <nav>
+                <div class="left"><h1>Sensor Monitor</h1></div>
+                    <div class="right">
+                        <ul>
+                            <li><a href="#Home">Home</a></li>
+                            <li><a href="#sensorData">Sensor Data</a></li>
+                            <li><a href="#Team">Team</a></li>
+                            <!-- <li><a href="#Contactus">Contact us</a></li> -->
+                        </ul>
+                    </div>
+                </div>    
+            </nav>
+          </header>
+          <main>
+            <section class="first" id="Home">
+              <div class="leftsection">
+                  <p>Water Quality Monitoring System</p>
+              </div>
+              <div class="container">
+              <div class="rightsection">
+                  <!-- <p><h2>Water Quality Monitoring System</h2> -->
+                    <p>
+                  Welcome to our Water Quality Monitoring System. This project aims to provide real-time data on water quality parameters to ensure safe and clean water for everyone.
+                  <br>
+                  Our system continuously monitors Total Dissolved Solids and Turbidity,and provides up-to-date information to help you ensure the water you use is of the highest quality. </p>
+              </div>
+            </div>
+
+            </section>
+            <div class="homebuttons">
+              <button class="btn" onclick="window.open('IOT Water Analysis Project Video.mp4')">Project Video</button>
+              <button class="btn">Report</button>
+            </div>
+            <hr>
+              <div class="readings" id="sensorData">
+                  <div class="readingtitle">
+                    Latest Reading</div>
+                    <div class="readingvalues">
+          <p>Date: ${latestReading.date}</p>
+          <p>Turbidity: ${latestReading.turbidity}</p>
+          <p>TDS: ${latestReading.tds}</p>
+          <div class="extrainfo">turbidity levels: 0-65:clear, 65-80:cloudy, 80+:dirty <br> TDS levels: Excellent:0-300 mg/L
+            Good:300-600 mg/L
+            Fair:600-900 mg/L
+            Poor:900-1200 mg/L
+            Unacceptable:Above 1200 mg/L</div>
+        </div>
+      </div>
+              <br>
+              <br>
+                  <div class="navtitle">Records</div>
+                  <br>
+          
+               <div class="controlgrid"  style="text-align: center; margin-top: 20px;">
+                  
+                    <button class="btn" onclick="viewHistory()">Real time</button>
+                    <button class="btn" onclick="CreateSample()">Create new sample</button>
+                    <button class="btn" onclick="Records()">Previous sample records </button>
+              </div>
+                 
+                  <br>
+                  <br>
+                 
+        <div class="name" id="Team">Our Team</div>
+<div class="container">
+  <div class="box">
+    <div class="content">
+      <h3>Ritul Kulkarni<br><span>BTech IT KJSCE</span></h3>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/ritul-kulkarni-15123a256/" style="--i:1;"><i class="fa-brands fa-linkedin"></i></a></li>
+        <li><a href="https://github.com/RitulK" style="--i:2;"><i class="fa-brands fa-github"></i></a></li>
+        
+      </ul>
+    </div>
+  </div>
+  <div class="box">
+    <div class="content">
+      <h3>Khushi Mishra<br><span>BTech IT KJSCE</span></h3>
+      <ul>
+        <li><a href="#" style="--i:1;"><i class="fa-brands fa-linkedin"></i></a></li>
+        <li><a href="#" style="--i:2;"><i class="fa-brands fa-github"></i></a></li>
+       
+      </ul>
+    </div>
+  </div>
+  <div class="box">
+    <div class="content">
+      <h3>Yash Pathak<br><span>BTech AI&DS KJSCE</span></h3>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/yash-pathak-5684a7298/" style="--i:1;"><i class="fa-brands fa-linkedin"></i></a></li>
+        <li><a href="https://github.com/This-is-Yash" style="--i:2;"><i class="fa-brands fa-github"></i></a></li>
+       
+      </ul>
+    </div>
+  </div>
+  <div class="box">
+    <div class="content">
+      <h3>Mrunal Bapardekar<br><span>BTech EXCP KJSCE</span></h3>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/mrunal-b-47b85b303" style="--i:1;"><i class="fa-brands fa-linkedin"></i></a></li>
+        <li><a href="https://github.com/noturs711" style="--i:2;"><i class="fa-brands fa-github"></i></a></li>
+        
+      </ul>
+    </div>
+  </div>
+  <div class="box">
+    <div class="content">
+      <h3> Dr.Vandana Satam<br><span>KJSCE Faculty EXTC</span></h3>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/dr-vandana-satam-4b168a95" style="--i:1;"><i class="fa-brands fa-linkedin"></i></a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+          <footer class="footer"> 
+            <ul class="list">
+                <li>
+                    <a href="#Home">Home</a>
+                </li>
+                <li>
+                    <a href="#sensorData">Sensor Data</a>
+                </li>
+                <li>
+                    <a href="#Team">Team</a>
+                </li>
+                <!-- <li>
+                    <a href="#Contactus">Contact us</a>
+                </li> -->
+            </ul>
+            <p class="copyright">© 2024 TEAM | All Rights Reserved</p>
+        </footer>
+        
+        <!-- <script>
+            const Turbidity = ${latestReading.turbidity};
+            
+            // Determine status based on turbidity
+            let status = '';
+            if (turbidity < 65) {
+                status = 'CLEAR';
+                document.getElementById('statusText').classList.add('status-clear');
+            } else if (turbidity < 80) {
+                status = 'CLOUDY';
+                document.getElementById('statusText').classList.add('status-cloudy');
+            } else {
+                status = 'DIRTY';
+                document.getElementById('statusText').classList.add('status-dirty');
+            }
+            // Display status in the HTML
+            document.getElementById('statusText').textContent = status;
+
+            function viewHistory() {
+              window.location.href = 'http://localhost:4000';
+            }
+          </script> -->
+          <script>
+           
+            function viewHistory() {
+              window.location.href = 'http://localhost:4000';
+            }
+            function CreateSample() {
+              window.location.href = 'http://localhost:7000';
+            }
+            function Records() {
+              window.location.href = 'http://localhost:3000';
+            }
+          </script>
+        
+        </body>
+</html>

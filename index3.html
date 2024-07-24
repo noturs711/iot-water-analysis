@@ -1,0 +1,424 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Tables and Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        button {
+            margin: 10px;
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #tablesList {
+            margin-top: 20px;
+        }
+        #tablesList a {
+            display: block;
+            margin: 5px 0;
+            text-decoration: none;
+            color: #333;
+        }
+        #tablesData {
+            margin-top: 20px;
+        }
+        #tablesData table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        #tablesData th, #tablesData td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        #tablesData th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Database Tables and Data</h1>
+
+      
+    <button onclick="fetchTables()">Fetch Tables</button>
+
+    
+    <div id="tablesList"></div>
+
+     
+    <div id="tablesData"></div>
+
+    <script>
+        async function fetchTables() {
+            try {
+                const response = await fetch('/tables');
+                const tables = await response.json();
+
+                const tablesList = document.getElementById('tablesList');
+                tablesList.innerHTML = '<h3>Tables List:</h3>';
+                
+                tables.forEach(table => {
+                    const link = document.createElement('a');
+                    link.href = `javascript:fetchData('${table}')`;
+                    link.textContent = table;
+                    tablesList.appendChild(link);
+                });
+            } catch (error) {
+                console.error('Error fetching tables:', error);
+            }
+        }
+
+        async function fetchData(tableName) {
+            try {
+                const response = await fetch(`/data/${tableName}`);
+                const data = await response.json();
+
+                const tablesData = document.getElementById('tablesData');
+                tablesData.innerHTML = `<h3>Data from Table: ${tableName}</h3>`;
+                
+                if (data.length === 0) {
+                    tablesData.innerHTML += '<p>No data available.</p>';
+                    return;
+                }
+
+                const table = document.createElement('table');
+                const thead = document.createElement('thead');
+                const tbody = document.createElement('tbody');
+
+                const headers = Object.keys(data[0]);
+                const headerRow = document.createElement('tr');
+                headers.forEach(header => {
+                    const th = document.createElement('th');
+                    th.textContent = header;
+                    headerRow.appendChild(th);
+                });
+                thead.appendChild(headerRow);
+
+                data.forEach(row => {
+                    const tr = document.createElement('tr');
+                    headers.forEach(header => {
+                        const td = document.createElement('td');
+                        td.textContent = row[header];
+                        tr.appendChild(td);
+                    });
+                    tbody.appendChild(tr);
+                });
+
+                table.appendChild(thead);
+                table.appendChild(tbody);
+                tablesData.appendChild(table);
+            } catch (error) {
+                console.error(`Error fetching data from table ${tableName}:`, error);
+            }
+        }
+    </script>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Tables and Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        button {
+            margin: 10px;
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #tablesList {
+            margin-top: 20px;
+        }
+        #tablesList a {
+            display: block;
+            margin: 5px 0;
+            padding: 8px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            text-decoration: none;
+            color: #333;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        #tablesList a:hover {
+            background-color: #e0e0e0;
+        }
+        #tablesData {
+            margin-top: 20px;
+        }
+        #tablesData table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        #tablesData th, #tablesData td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        #tablesData th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Database Tables and Data</h1>
+
+    
+    <button onclick="fetchTables()">Fetch Tables</button>
+
+    
+    <div id="tablesList"></div>
+
+    
+    <div id="tablesData"></div>
+
+    <script>
+        async function fetchTables() {
+            try {
+                const response = await fetch('/tables');
+                const tables = await response.json();
+
+                const tablesList = document.getElementById('tablesList');
+                tablesList.innerHTML = '<h3>Tables List:</h3>';
+                
+                tables.forEach(table => {
+                    const link = document.createElement('a');
+                    link.href = `javascript:fetchData('${table}')`;
+                    link.textContent = table;
+                    tablesList.appendChild(link);
+                });
+            } catch (error) {
+                console.error('Error fetching tables:', error);
+            }
+        }
+
+        async function fetchData(tableName) {
+            try {
+                const response = await fetch(`/data/${tableName}`);
+                const data = await response.json();
+
+                const tablesData = document.getElementById('tablesData');
+                tablesData.innerHTML = `<h3>Data from Table: ${tableName}</h3>`;
+                
+                if (data.length === 0) {
+                    tablesData.innerHTML += '<p>No data available.</p>';
+                    return;
+                }
+
+                const table = document.createElement('table');
+                const thead = document.createElement('thead');
+                const tbody = document.createElement('tbody');
+
+                const headers = Object.keys(data[0]);
+                const headerRow = document.createElement('tr');
+                headers.forEach(header => {
+                    const th = document.createElement('th');
+                    th.textContent = header;
+                    headerRow.appendChild(th);
+                });
+                thead.appendChild(headerRow);
+
+                data.forEach(row => {
+                    const tr = document.createElement('tr');
+                    headers.forEach(header => {
+                        const td = document.createElement('td');
+                        td.textContent = row[header];
+                        tr.appendChild(td);
+                    });
+                    tbody.appendChild(tr);
+                });
+
+                table.appendChild(thead);
+                table.appendChild(tbody);
+                tablesData.appendChild(table);
+            } catch (error) {
+                console.error(`Error fetching data from table ${tableName}:`, error);
+            }
+        }
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Tables and Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #0b47ec;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #09eb5c;
+        }
+        #tablesList {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #tablesList h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        #tablesList a {
+            display: block;
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #0a9cf0;
+            text-decoration: none;
+            color: #333;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        #tablesList a:hover {
+            background-color: #f8f8f9;
+        }
+        #tablesData {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #tablesData h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        #tablesData table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        #tablesData th, #tablesData td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        #tablesData th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Database Tables and Data</h1>
+
+    <!-- Button to fetch all tables -->
+    <div style="text-align: center;">
+        <button onclick="fetchTables()">Fetch Tables</button>
+    </div>
+
+    <!-- Container for displaying tables list -->
+    <div id="tablesList">
+        <h3>Tables List:</h3>
+    </div>
+
+    <!-- Container for displaying table data -->
+    <div id="tablesData"></div>
+
+    <script>
+        async function fetchTables() {
+            try {
+                const response = await fetch('/tables');
+                const tables = await response.json();
+
+                const tablesList = document.getElementById('tablesList');
+                tablesList.innerHTML = '<h3>Tables List:</h3>';
+                
+                tables.forEach(table => {
+                    const link = document.createElement('a');
+                    link.href = `javascript:fetchData('${table}')`;
+                    link.textContent = table;
+                    tablesList.appendChild(link);
+                });
+            } catch (error) {
+                console.error('Error fetching tables:', error);
+            }
+        }
+
+        async function fetchData(tableName) {
+            try {
+                const response = await fetch(`/data/${tableName}`);
+                const data = await response.json();
+
+                const tablesData = document.getElementById('tablesData');
+                tablesData.innerHTML = `<h3>Data from Table: ${tableName}</h3>`;
+                
+                if (data.length === 0) {
+                    tablesData.innerHTML += '<p>No data available.</p>';
+                    return;
+                }
+
+                const table = document.createElement('table');
+                const thead = document.createElement('thead');
+                const tbody = document.createElement('tbody');
+
+                const headers = Object.keys(data[0]);
+                const headerRow = document.createElement('tr');
+                headers.forEach(header => {
+                    const th = document.createElement('th');
+                    th.textContent = header;
+                    headerRow.appendChild(th);
+                });
+                thead.appendChild(headerRow);
+
+                data.forEach(row => {
+                    const tr = document.createElement('tr');
+                    headers.forEach(header => {
+                        const td = document.createElement('td');
+                        td.textContent = row[header];
+                        tr.appendChild(td);
+                    });
+                    tbody.appendChild(tr);
+                });
+
+                table.appendChild(thead);
+                table.appendChild(tbody);
+                tablesData.appendChild(table);
+            } catch (error) {
+                console.error(`Error fetching data from table ${tableName}:`, error);
+            }
+        }
+    </script>
+</body>
+</html>

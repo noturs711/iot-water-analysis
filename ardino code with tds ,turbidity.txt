@@ -1,0 +1,38 @@
+int turbidityPin = 34; // GPIO 36 for turbidity sensor
+int tdsPin = 35;       // GPIO 39 for TDS meter
+
+void setup() {
+  Serial.begin(115200);
+
+  // Print a message to indicate the start of the program
+  Serial.println("Starting sensor readings...");
+}
+
+void loop() {
+  // Read turbidity sensor
+  int turbidityValue = analogRead(turbidityPin);
+  int turbidity = map(turbidityValue, 0, 4095, 100, 0); // Adjust the range for ESP32 ADC (0-4095)
+
+  // Read TDS meter
+  int tdsValue = analogRead(tdsPin);
+  float tdsVoltage = tdsValue * (3.3 / 4095.0); // Convert analog reading to voltage (ESP32 ADC range 0-4095, 3.3V reference)
+  float tds = (tdsVoltage * 133.42) * tdsVoltage * tdsVoltage + (tdsVoltage * 255.86) * tdsVoltage + 857.39; // Example formula to convert voltage to TDS value (you may need to adjust based on your TDS meter)
+
+  // Print the sensor values to the serial monitor
+  Serial.println("");
+  Serial.print(turbidity);
+  
+  // if (turbidity < 65) {
+  //   Serial.println(" - Status: CLEAR");
+  // } else if (turbidity < 80) {
+  //   Serial.println(" - Status: CLOUDY");
+  // } else {
+  //   Serial.println(" - Status: DIRTY");
+  // }
+
+  Serial.print(",");
+  Serial.print(tds);
+  
+
+  delay(2000); // Wait for 2 seconds before the next reading
+}
